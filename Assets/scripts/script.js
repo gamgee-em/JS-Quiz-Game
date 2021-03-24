@@ -1,6 +1,7 @@
 console.log('hello');
 let timerEl = document.getElementById('timer');
 let buttonEl = document.getElementById('start-quiz');
+let mainEl = document.getElementById('switch')
 
 let questions = [
     {
@@ -25,25 +26,20 @@ let questions = [
     }
 ];
 
-for (i of questions) {
-    console.log(i.answers[0])
-}
-
 // TIMER use a loop to decrement the --clock 
 // and set score equal to clock after last question is answered
 let timer = 120;
 let score = timer;
 // add click event to start quiz button
-buttonEl.addEventListener('click', function() {
-    setInterval(function(){
+buttonEl.addEventListener('click', () => {
+    setInterval(() => {
+        timerEl.innerHTML = `Time: ${score}`;
         if (score > 0) {
-        
-            console.log(timer)
-            score = timer--;
-            timerEl.innerHTML = score;
-            return score;
+            return score--;
         }
-        }, 1000);
-    
-     return score;
+    }, 100);
+// create an on click event function that targest the 
+// #switch section and changes the h1 & p 
+    mainEl.innerHTML = 
+
 });
