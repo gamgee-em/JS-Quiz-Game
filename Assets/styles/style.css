@@ -1,0 +1,26 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#high-score {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+
+}
+
+#timer {
+    display: flex;
+    justify-content: flex-end;
+}
