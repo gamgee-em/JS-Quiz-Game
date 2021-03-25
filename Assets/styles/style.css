@@ -61,12 +61,12 @@ main h1 {
     display: none;
 }
 
-#m-choice {
+#m-choice-list {
     display: flex;
     flex-direction: column;
 }
 
-#m-choice li {
+#m-choice-list li {
     list-style: inside;
     list-style-type: decimal;
     background-color: hotpink;
@@ -79,7 +79,7 @@ main h1 {
     border-radius: 8px;
 }
 
-#m-choice li:hover {
+#m-choice-list li:hover {
     cursor: pointer;
 }
 
