@@ -34,12 +34,6 @@ main {
     line-height: 1.5em;
 }
 
-main button{
-    font-weight: bold;
-    letter-spacing: 1px;
-
-}
-
 main h1 {
     font-size: 140%;
     font-weight: bold;
@@ -61,4 +55,36 @@ main h1 {
 #start-quiz:hover {
     outline: none;
     box-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.hide {
+    display: none;
+}
+
+#m-choice {
+    display: flex;
+    flex-direction: column;
+}
+
+#m-choice li {
+    list-style: inside;
+    list-style-type: decimal;
+    background-color: hotpink;
+    border: 1px solid black;
+    width: 14vw;
+    padding: 2% 0 2% 10%;
+    margin: 2%;
+    justify-items: flex-start;
+    text-align: left;
+    border-radius: 8px;
+}
+
+#m-choice li:hover {
+    cursor: pointer;
+}
+
+main button{
+    font-weight: bold;
+    letter-spacing: 1px;
+
 }

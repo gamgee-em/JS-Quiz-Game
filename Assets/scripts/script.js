@@ -1,7 +1,8 @@
-console.log('hello');
 let timerEl = document.getElementById('timer');
 let buttonEl = document.getElementById('start-quiz');
-let mainEl = document.getElementById('switch')
+let mainEl = document.getElementById('switch');
+let h1El = document.getElementById('question');
+let paraEl = document.getElementById('welcome');
 
 let questions = [
     {
@@ -32,14 +33,43 @@ let timer = 120;
 let score = timer;
 // add click event to start quiz button
 buttonEl.addEventListener('click', () => {
+    buttonEl.classList.add('hide');
+    paraEl.classList.add('hide')
     setInterval(() => {
         timerEl.innerHTML = `Time: ${score}`;
         if (score > 0) {
             return score--;
         }
-    }, 100);
-// create an on click event function that targest the 
-// #switch section and changes the h1 & p 
-    mainEl.innerHTML = 
+    }, 1000);
 
+    let question = questions[0];
+    console.log(question)
+
+    for (let i = 0; i < questions.length; i++) {
+        console.log(question.answers[0])
+        let answers = question.answers[i];
+        let li = document.createElement('li');
+
+        h1El.textContent= question.title;
+        li.textContent = answers;
+
+        document.querySelector('#m-choice').appendChild(li);
+    }
+    
 });
+/* 
+    questions.forEach((question, i) => {
+        h1El.textContent= question.title;
+        let answers = question.answers[i];
+        console.log(question)
+        if (i <= answers.length) {
+            i++;
+            let li = document.createElement('li');
+            console.log(answers)
+            li.textContent = answers;
+            
+            document.querySelector('#m-choice').appendChild(li);
+        }
+    }) 
+    */
+
