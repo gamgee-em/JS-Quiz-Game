@@ -1,14 +1,14 @@
 let timerEl = document.getElementById('timer');
 let buttonEl = document.getElementById('start-quiz');
-let mainEl = document.getElementById('switch');
 let h1El = document.getElementById('question');
 let paraEl = document.getElementById('welcome');
-let mChoiceBtn = document.getElementsByClassName('m-choice-btn');
+let questIndex = 0;
+let mChoiceLi = document.querySelector('#m-choice-list');
 
 let questions = [
     {
-        title: 'Which is a Boolean Value?',
-        responses: ['Hello', 'False', '36', 'false'],
+        title: 'Which is a Boolean data type?',
+        responses: ['Hello', '"False"', '36', 'false'],
         correct: 'false'
     },
     {
@@ -17,8 +17,8 @@ let questions = [
         correct: 'Don\'t Repeat Yourself',
     },
     {
-        title: 'Which is a String Value?',
-        responses: ["'5'", '5' , 'true', 'NaN'],
+        title: 'Which is a String data type?',
+        responses: ['"5"', 5 , 'true', 'NaN'],
         correct: "'5'",
     },
     {
@@ -28,48 +28,53 @@ let questions = [
     }
 ];
 
-// TIMER use a loop to decrement the --clock 
-// and set score equal to clock after last question is answered
 let timer = 120;
 let score = timer;
-// add click event to start quiz button
-buttonEl.addEventListener('click', () => {
+// Add click event to start quiz button
+buttonEl.addEventListener('click', function(event) {
+    event.stopPropagation();
+
     buttonEl.classList.add('hide');
     paraEl.classList.add('hide')
 
+    changeQuestion();
+
     setInterval(() => {
         timerEl.innerHTML = `Time: ${score}`;
-        score > 0 ? score-- : score;
+        score > 0 ? score-- : score = 0;
     }, 1000);
-
-    let question = questions[0];
-    h1El.textContent= question.title;
-    question.responses.forEach((choice, i) => {
-        let li = document.createElement('li');
-        li.setAttribute('class', 'choices');
-        li.textContent = choice;
-        console.log(choice)
-        console.log(i)
-        li.addEventListener('click', (event) => {
-            event.target.innerHTML === questions[0].correct ?
-                score : score -= 10;
-                console.log(score);
-        })
-        document.querySelector('#m-choice-list').appendChild(li);
-    })
-    /* for (let i = 0; i < question.responses.length; i++) {
-        let responses = question.responses[i];
-        let li = document.createElement('li');
-        li.setAttribute('class', 'responses');
-        li.textContent = responses;
-        li.addEventListener('click', (event) => {
-            event.target.innerHTML === questions[0].correct ?
-                score : score -= 10;
-                console.log(score);
-
-        }) */
-/*         document.querySelector('#m-choice-list').appendChild(li);
- */    
 });
 
+function changeQuestion() {
 
+    let question = questions[questIndex];
+    // Loop over each questions objects choice in the responses array
+    console.log(question.responses)
+    for (let i = 0; i < question.responses.length; i++) {
+        h1El.textContent= question.title;
+        let responses = question.responses[i];
+        let title = questions[i].title
+        let li = document.createElement('li');
+        li.setAttribute("class", "responses")
+        li.textContent =  responses;
+        
+        li.addEventListener("click", function(){
+
+            console.log(`user chose = ${responses}`)
+
+            this.innerHTML === question.correct ?
+                score :
+                score -= 10;
+
+            question = questions[questIndex];
+            h1El.textContent = title;
+            questIndex++;
+            // this value needs to be something different
+            console.log(question.responses[questIndex])
+            li.innerHTML = question.responses[questIndex];
+            changeQuestion();
+ 
+        })
+        mChoiceLi.appendChild(li);
+    }
+}
