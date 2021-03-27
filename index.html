@@ -16,13 +16,18 @@
     </header>
     <!-- MAIN -->
     <main>
-        <h1 id='question'>Take a Coding Quiz</h1>
-        <p id='welcome'>Welcome, this is a coding challange on JavaScript! Click 'Start Quiz' to begin.</p>
-            <ol id='m-choice-list'></ol>
+        <div id='welcome'>
+            <h1 id='question'>Take a Coding Quiz</h1>
+            <p>Welcome, this is a coding challange on JavaScript! Click 'Start Quiz' to begin.</p>
+          
         <!-- START QUIZ BUTTON -->
-        <button id='start-quiz'>Start Quiz!</button>
+            <button id='start-quiz'>Start Quiz!</button>
+        </div>
+        <div id='questions' class="hide">
+            <h2 id='question'></h2>
+            <div id="m-choice-list"></div>
+        </div>
     </main>
     <script src="./Assets/scripts/script.js"></script>
 </body>
 </html>
-

@@ -1,7 +1,7 @@
 let timerEl = document.getElementById('timer');
 let buttonEl = document.getElementById('start-quiz');
 let h1El = document.getElementById('question');
-let paraEl = document.getElementById('welcome');
+let qEl = document.getElementById('questions');
 let questIndex = 0;
 let mChoiceLi = document.querySelector('#m-choice-list');
 
@@ -31,39 +31,62 @@ let questions = [
 let timer = 120;
 let score = timer;
 // Add click event to start quiz button
-buttonEl.addEventListener('click', function(event) {
-    event.stopPropagation();
+function startQuiz() {
+    let paraEl = document.getElementById('welcome');
 
-    buttonEl.classList.add('hide');
-    paraEl.classList.add('hide')
-
+/*     event.stopPropagation();
+ */
+    console.log('clicked');
+    paraEl.setAttribute('class', 'hide');
+    qEl.removeAttribute('class');
     changeQuestion();
 
-    setInterval(() => {
+    /* setInterval(() => {
         timerEl.innerHTML = `Time: ${score}`;
         score > 0 ? score-- : score = 0;
-    }, 1000);
-});
+    }, 1000); */
+};
 
 function changeQuestion() {
 
     let question = questions[questIndex];
     // Loop over each questions objects choice in the responses array
-    console.log(question.responses)
-    for (let i = 0; i < question.responses.length; i++) {
+    /* console.log(question.responses) */
+/*     for (let i = 0; i < question.responses.length; i++) {
         h1El.textContent= question.title;
         let responses = question.responses[i];
+        console.log('1:', responses)
         let title = questions[i].title
+        console.log('2:', title)
         let li = document.createElement('li');
         li.setAttribute("class", "responses")
         li.textContent =  responses;
-        
-        li.addEventListener("click", function(){
+ */     
+        h1El.textContent= question.title;
+        mChoiceLi.innerHTML = "";
+     
+        question.responses.forEach(function (response, i) {
+            let button = document.createElement('button');
+            button.setAttribute('class', 'response');
+            button.setAttribute('value', response);
+            button.textContent = i + 1 + '. ' + response;
+            button.onclick = clickQuestion;
+            mChoiceLi.appendChild(button);
 
-            console.log(`user chose = ${responses}`)
+        });
+    }
 
-            this.innerHTML === question.correct ?
-                score :
+        function clickQuestion() {
+/*             let question = questions[questIndex];
+ */            /* h1El.textContent = title; */
+            questIndex++;
+            console.log('click');
+    /*     button.addEventListener("click", function(){ */
+
+/*             console.log(`user chose = ${responses}`)
+ */
+            /* this.innerHTML === question.correct ?
+                score & console.log('correct!') :
                 score -= 10;
 
             question = questions[questIndex];
@@ -71,10 +94,13 @@ function changeQuestion() {
             questIndex++;
             // this value needs to be something different
             console.log(question.responses[questIndex])
-            li.innerHTML = question.responses[questIndex];
-            changeQuestion();
- 
-        })
-        mChoiceLi.appendChild(li);
-    }
-}
+            button.innerHTML = question.responses[questIndex];
+            changeQuestion(); */
+/*             questIndex++;
+ */ 
+/*         })
+ */    }
+/*         mChoiceLi.appendChild(li);
+ */    /* } */
+
+buttonEl.onclick = startQuiz;
