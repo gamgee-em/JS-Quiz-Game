@@ -1,6 +1,12 @@
 header span {
     font-family: 'Kufam', cursive;
 }
+
+header span:hover {
+    cursor: pointer;
+    text-shadow: 1px 1px 5px rgb(221, 71, 221);
+
+}
 body {
     background: linear-gradient(rgb(136, 129, 136), rgb(192, 192, 192));
     height: 100vh;
