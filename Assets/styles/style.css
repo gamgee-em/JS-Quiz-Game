@@ -34,7 +34,7 @@ main {
     line-height: 1.5em;
 }
 
-main h1 {
+main h2 {
     font-size: 140%;
     font-weight: bold;
     margin: 0 0 4% 0;
@@ -64,22 +64,23 @@ main h1 {
 #m-choice-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-#m-choice-list li {
+#m-choice-list button {
     list-style: inside;
     list-style-type: decimal;
     background-color: hotpink;
     border: 1px solid black;
-    width: 14vw;
-    padding: 2% 0 2% 10%;
+    width: 25vw;
+    padding: 2% 0 2% 2%;
     margin: 2%;
     justify-items: flex-start;
     text-align: left;
     border-radius: 8px;
 }
 
-#m-choice-list li:hover {
+#m-choice-list button:hover {
     cursor: pointer;
 }
 
@@ -87,4 +88,12 @@ main button{
     font-weight: bold;
     letter-spacing: 1px;
 
+}
+
+@media screen and (max-width: 700px) {
+
+    #m-choice-list button {
+        font-size: 60%;
+        width: 20vw;
+    }
 }
