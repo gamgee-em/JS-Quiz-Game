@@ -2,8 +2,10 @@ let timerEl = document.getElementById('timer');
 let buttonEl = document.getElementById('start-quiz');
 let h1El = document.getElementById('responses');
 let questionEl = document.getElementById('questions');
-let mChoiceLi = document.querySelector('#m-choice-list');
+let mChoiceLi = document.getElementById('m-choice-list');
 let questIndex = 0;
+let timer = 50;
+let score = timer;
 
 let questions = [
     {
@@ -23,13 +25,12 @@ let questions = [
     },
     {
         title: 'Which is an Array Method?',
-        responses: ['makeMyCodeWork()','reduce()', 'toLowerCase()', 'codeMagic()'],
+        responses: ['pleaseWork()','reduce()', 'toLowerCase()', 'codeMagic()'],
         correct: 'reduce()'
     }
 ];
 
-let timer = 120;
-let score = timer;
+
 // Add click event to start quiz button
 function startQuiz() {
     let paraEl = document.getElementById('welcome');
@@ -45,7 +46,6 @@ function startQuiz() {
 };
 
 function changeQuestion() {
-
     let question = questions[questIndex];    
     h1El.textContent= question.title;
     mChoiceLi.innerHTML = "";
@@ -59,19 +59,27 @@ function changeQuestion() {
         button.textContent = i + 1 + '. ' + response;
         button.onclick = clickQuestion;
         mChoiceLi.appendChild(button);
-
     });
 }
     
 function clickQuestion() {
+    
+    let endGame = document.getElementById('end-game');
+    // reset timer to 0 if last question is wrong and timer 
+    // has less than 10 seconds
     this.value === questions[questIndex].correct ?
-        score : score -= 10;
-
+        score : 
+        score >= 10 ? 
+        score -= 10 :
+        score = 0;
+        
     questIndex++;
+    
     if (questIndex === questions.length) {
         // end quiz function here
-        console.log('Game Over!');
-        alert(`Your score is ${score}`)
+        questionEl.setAttribute('class', 'hide')
+        endGame.removeAttribute('class');
+        document.getElementById('show-score').innerHTML = score;
     } 
             // Else run this changeQuestion function
     changeQuestion();
@@ -79,30 +87,3 @@ function clickQuestion() {
 
 }
 buttonEl.onclick = startQuiz;
-/*         function clickQuestion() {
-            let question = questions[questIndex];
-            h1El.textContent = title; 
-            questIndex++;
-            console.log('click'); 
-        button.addEventListener("click", function(){ 
-
-           console.log(`user chose = ${responses}`)
- 
-             this.innerHTML === question.correct ?
-                score & console.log('correct!') :
-                score -= 10;
-
-            question = questions[questIndex];
-            h1El.textContent = title;
-            questIndex++;
-            // this value needs to be something different
-            console.log(question.responses[questIndex])
-            button.innerHTML = question.responses[questIndex];
-            changeQuestion(); 
-             questIndex++;
-  
-         })
-      } 
-         mChoiceLi.appendChild(li);
-  } */
-

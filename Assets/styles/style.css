@@ -1,3 +1,10 @@
+header span {
+    font-family: 'Kufam', cursive;
+}
+body {
+    background: linear-gradient(rgb(136, 129, 136), rgb(192, 192, 192));
+    height: 100vh;
+}
 
 a {
     cursor: pointer;
@@ -20,6 +27,7 @@ a {
 }
 
 main {
+    font-family: 'Kufam', cursive;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,30 +43,34 @@ main {
 }
 
 main h2 {
-    font-size: 140%;
+    font-size: 160%;
     font-weight: bold;
     margin: 0 0 4% 0;
 }
 
 #start-quiz {
+    font-family: 'Kufam', cursive;
+    font-weight: 800;
+    text-align: center;
+}
+
+button {
+    font-family: 'Kufam', cursive;
+    width: 50%;
+    padding: 2% 0 2% 2%;
+    margin: 2%;
+    font-weight: 800;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 2%;
-    padding: 1% 1%;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    background-color:  rgb(221, 71, 221);
     border: none;
     outline: none;
+    background: linear-gradient(rgb(192, 192, 192), rgb(232, 48, 232));
 }
 
-#start-quiz:hover {
+button:hover {
+    cursor: pointer;
     outline: none;
-    box-shadow: 1px 1px rgb(0, 0, 0);
-}
-
-.hide {
-    display: none;
+    box-shadow: 0px 0px 20px rgb(232, 48, 232, 0.8);
 }
 
 #m-choice-list {
@@ -68,32 +80,47 @@ main h2 {
 }
 
 #m-choice-list button {
-    list-style: inside;
-    list-style-type: decimal;
-    background-color: hotpink;
-    border: 1px solid black;
-    width: 25vw;
-    padding: 2% 0 2% 2%;
-    margin: 2%;
-    justify-items: flex-start;
     text-align: left;
-    border-radius: 8px;
 }
 
-#m-choice-list button:hover {
-    cursor: pointer;
+form {
+    font-family: 'Kufam', cursive;
 }
 
-main button{
-    font-weight: bold;
-    letter-spacing: 1px;
+#end-game p {
+    font-size: 120%;
+    font-weight: 600;
+}
 
+#end-game label {
+    font-weight: 600;
+}
+
+#end-game input {
+    font-family: 'Kufam', cursive;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    outline: none;
+    border: 2px solid rgb(221, 71, 221, 0.8);
+    border-radius: 5px;
+}
+#end-game input:focus {
+	outline: none;
+  	border: 2px solid rgb(221, 71, 221, 0.8);
+    box-shadow: 0px 0px 20px rgb(221, 71, 221);
+}
+
+#end-game button {
+    padding: 5% 0 4% 0;
+    margin: 2%;
 }
 
 @media screen and (max-width: 700px) {
 
-    #m-choice-list button {
-        font-size: 60%;
-        width: 20vw;
-    }
+    
+}
+
+.hide {
+    display: none;
 }

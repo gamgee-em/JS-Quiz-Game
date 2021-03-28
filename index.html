@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500;600;700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="./Assets/styles/style.css">
     <link rel="stylesheet" href="./Assets/styles/reset.css">
 </head>
@@ -12,7 +14,8 @@
     <!-- HEADER -->
     <header>
         <span><a id='high-score'>View Highscores</a></span>
-        <span id="timer">Time: 120</span>
+        <span id="timer">Time: 50</span>
+        <!-- Time: 50 -->
     </header>
     <!-- MAIN -->
     <main>
@@ -21,11 +24,29 @@
             <p>Welcome, this is a coding challange on JavaScript! Click 'Start Quiz' to begin.</p>
           
         <!-- START QUIZ BUTTON -->
-            <button id='start-quiz'>Start Quiz!</button>
+            <button id='start-quiz' class='btn'>Start Quiz!</button>
         </div>
         <div id='questions' class="hide">
             <h2 id='responses'></h2>
             <div id="m-choice-list"></div>
+        </div>   
+            <div id="end-game" class="hide">
+                <h2>Game Over!</h1>
+                <p>You scored:</p>
+                <p id="show-score">0</p>
+                <form id="submitInitials">
+                    <div class="form-group">
+                        <label for="inputInitials">Enter Your Initials</label>
+                    </br>
+                        <input type="text" class="form-control" id="playerInitials" value="">                        
+                    </div>
+                    <button type="submit" class="btn" id="submitButton">Submit</button>
+                </form>
+                <div class="alert alert-danger" id="alertBox" style="display: none;">
+                    Please enter your initials!
+                </div>
+            </div>
+        
         </div>
     </main>
     <script src="./Assets/scripts/script.js"></script>
