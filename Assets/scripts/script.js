@@ -1,11 +1,14 @@
 let timerEl = document.getElementById('timer');
 let buttonEl = document.getElementById('start-quiz');
 let h1El = document.getElementById('responses');
+let paraEl = document.getElementById('welcome');
+
 let questionEl = document.getElementById('questions');
 let mChoiceLi = document.getElementById('m-choice-list');
 let showScore = document.getElementById('show-score');
 let submitName = document.getElementById('save-name');
 let submitScore = document.getElementById('save-score');
+let highScore = document.getElementById('high-score');
 let highScoreList = document.getElementById('high-score-list');
 let endGame = document.getElementById('end-game');
 
@@ -52,8 +55,7 @@ localStorage.getItem("localUserScore") ?
 // Add click event to start quiz button
 function startQuiz(event) {
     event.stopPropagation();
-    let paraEl = document.getElementById('welcome');
-    console.log('clicked start quiz');
+
     //hide welcome content
     paraEl.setAttribute('class', 'hide');
     questionEl.removeAttribute('class');
@@ -72,7 +74,6 @@ function changeQuestion() {
     let question = questions[questIndex];    
     h1El.textContent= question.title;
     mChoiceLi.innerHTML = "";
-    console.log(questions[questIndex].correct)
 
     question.responses.forEach(function (response, i) {
         let button = document.createElement('button');
@@ -128,7 +129,10 @@ function storageHandler(event) {
         return b.score - a.score;
     });
     // convert userScoreArr to a json string object
+    console.log(userScoreArr)
     localStorage.setItem("localUserScore", JSON.stringify(userScoreArr));
+    console.log(userScoreArr)
+
     // update highscore info in browswer
     submitName.innerHTML = userHighScore.initials;
     submitScore.innerHTML = userHighScore.score;
@@ -139,6 +143,14 @@ function storageHandler(event) {
 function showHighScores() {
     highScoreList.removeAttribute('class')
     endGame.setAttribute('class', 'hide')
+    paraEl.setAttribute('class', 'hide');
+    submitName.innerHTML = userHighScore.initials;
+    submitScore.innerHTML = userHighScore.score;
+
+    storageHandler();
+
+
 }
 buttonEl.onclick = startQuiz;
 document.querySelector("#submitButton").onclick = storageHandler;
+highScore.onclick = storageHandler;
