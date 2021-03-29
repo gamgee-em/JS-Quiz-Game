@@ -6,7 +6,9 @@ let mChoiceLi = document.getElementById('m-choice-list');
 let showScore = document.getElementById('show-score');
 let submitName = document.getElementById('save-name');
 let submitScore = document.getElementById('save-score');
-let highScoreList = document.querySelector('.high-score-list');
+let highScoreList = document.getElementById('high-score-list');
+let endGame = document.getElementById('end-game');
+
 let userScoreArr;
 let questIndex = 0;
 let timer = 50;
@@ -85,7 +87,6 @@ function changeQuestion() {
     
 function clickQuestion() {
     
-    let endGame = document.getElementById('end-game');
     // reset timer to 0 if last question is wrong and timer 
     // has less than 10 seconds
 /*      timerEl.innerHTML = `Time: ${score}`;
@@ -137,7 +138,7 @@ function storageHandler(event) {
 //remove hide class and show highscores.
 function showHighScores() {
     highScoreList.removeAttribute('class')
-
+    endGame.setAttribute('class', 'hide')
 }
 buttonEl.onclick = startQuiz;
 document.querySelector("#submitButton").onclick = storageHandler;
