@@ -105,7 +105,6 @@ function clickQuestion() {
         questionEl.setAttribute('class', 'hide')
         endGame.removeAttribute('class');
         showScore.innerHTML = score;
-        showGameOver();
     } 
 
      // Else run this changeQuestion function
@@ -132,9 +131,6 @@ function storageHandler(event) {
     // update highscore info in browswer
     submitName.innerHTML = userHighScore.initials;
     submitScore.innerHTML = userHighScore.score;
-    console.log(score)
-    console.log(storeScore)
-    console.log(timer)
     showHighScores();
 }
 
