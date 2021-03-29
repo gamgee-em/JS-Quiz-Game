@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="./Assets/styles/reset.css">
 </head>
 <body>
+
     <!-- HEADER -->
     <header>
         <span><a id='high-score'>View Highscores</a></span>
-        <span id="timer">Time: 50</span>
-        <!-- Time: 50 -->
+        <span id='timer'>Time: 50</span>
     </header>
+
     <!-- MAIN -->
     <main>
         <div id='welcome'>
@@ -26,27 +27,31 @@
         <!-- START QUIZ BUTTON -->
             <button id='start-quiz' class='btn'>Start Quiz!</button>
         </div>
-        <div id='questions' class="hide">
+        <div id='questions' class='hide'>
             <h2 id='responses'></h2>
-            <div id="m-choice-list"></div>
-        </div>   
-            <div id="end-game" class="hide">
-                <h2>Game Over!</h1>
-                <p>You scored:</p>
-                <p id="show-score">0</p>
-                <form id="submitInitials">
-                    <div class="form-group">
-                        <label for="inputInitials">Enter Your Initials</label>
-                    </br>
-                        <input type="text" class="form-control" id="playerInitials" value="">                        
-                    </div>
-                    <button type="submit" class="btn" id="submitButton">Submit</button>
-                </form>
-                <div class="alert alert-danger" id="alertBox" style="display: none;">
-                    Please enter your initials!
+            <div id='m-choice-list'></div>
+        </div>
+
+        <!-- END GAME -->
+        <div id="end-game" class="hide">
+            <h2>Game Over!</h2>
+            <p>You Scored:</p>
+            <p id="show-score">0</p>
+            <form id="submitInitials">
+                <div class="form-group">
+                    <label for="inputInitials">Enter Your Initials</label>
+                </br>
+                    <input type="text" class="form-control" id="userInit" value="">                        
                 </div>
-            </div>
+                <button type="submit" class="btn" id="submitButton">Submit</button>
+            </form>
         
+            <!-- HIGH SCORES -->
+            <div id="high-score-list" >
+                <h2>High Scores</h2>
+                <p>Player: <span id="save-name"></span></p>
+                <p>Score: <span id="save-score"></span></p>
+            </div>
         </div>
     </main>
     <script src="./Assets/scripts/script.js"></script>

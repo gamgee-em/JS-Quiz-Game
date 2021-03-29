@@ -22,13 +22,17 @@ a {
     padding: 1% 0 0 2%;
 
 }
+#high-score:hover {
+    text-shadow: 1px 1px 5px rgb(221, 71, 221);
+
+}
+
 #high-score, #timer {
     display: flex;
 
 }
 #timer {
     justify-content: flex-end;
-
     padding: 1% 2% 0 0;
 }
 
@@ -60,6 +64,7 @@ main h2 {
     text-align: center;
 }
 
+/* BUTTON */
 button {
     font-family: 'Kufam', cursive;
     width: 50%;
@@ -79,6 +84,7 @@ button:hover {
     box-shadow: 0px 0px 20px rgb(232, 48, 232, 0.8);
 }
 
+/* MULTIPLE CHOICE LIST */
 #m-choice-list {
     display: flex;
     flex-direction: column;
@@ -89,6 +95,7 @@ button:hover {
     text-align: left;
 }
 
+/* FORM */
 form {
     font-family: 'Kufam', cursive;
 }
@@ -122,9 +129,8 @@ form {
     margin: 2%;
 }
 
-@media screen and (max-width: 700px) {
+.high-score-list {
 
-    
 }
 
 .hide {
