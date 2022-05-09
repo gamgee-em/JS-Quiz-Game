@@ -26,4 +26,4 @@ SO THAT when I return to the site I try to beat my previous score and test my kn
 
 ## URL to Deployed Application
 
-<a href='https://samsweig.github.io/JS-Quiz-Game/?'>My Live GitHub Site!!!</a>
+<a href='https://gamgee-em.github.io/JS-Quiz-Game/?'>My Live GitHub Site!!!</a>
